@@ -24,5 +24,12 @@ describe("Social Link Generation", () => {
 	    expect(twitterLink(input)).toEqual("https://twitter.com/allrameest");
 
 	});
+
+	test("StackOverflow user id generates profile link", () => {
+
+		const input = "12345";
+		expect(stackOverflowLink(input)).toEqual("https://stackoverflow.com/users/12345");
+		
+	});
 });
 	

@@ -25,6 +25,10 @@ function office(office) {
 	return elem;
 }
 
+function socials(github, twitter, linkedIn) {
+	
+}
+
 function createProfile(profile) {
 
 	let root = document.createElement('section');
