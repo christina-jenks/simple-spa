@@ -9,10 +9,21 @@ function search(ninjas, searchString) {
 
 export function searchByName(ninjas, name) {
 
+	let searchTerm = name.toUpperCase();
+
+	return ninjas.filter(ninja => 
+		ninja['name']
+		.toUpperCase()
+		.search(searchTerm) > -1)
 }
 
 export function searchByOffice(ninjas, office) {
+	let searchTerm = office.toUpperCase();
 
+	return ninjas.filter(ninja => 
+		ninja['office']
+		.toUpperCase()
+		.search(searchTerm) > -1)
 }
 
 export function searchByContact(ninjas, socials) {
