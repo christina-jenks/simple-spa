@@ -1,7 +1,7 @@
 "use strict";
 
 import {createProfile} from "./js/render.js"
-import {search} from "./js/search.js"
+import {searchByName, searchByOffice, searchByContact} from "./js/search.js"
 
 function writeNinjas(ninjas, target) {
 
@@ -30,14 +30,13 @@ window.addEventListener('load', function(event){
 		getData(this, function(ninjas) {
 			let target = document.getElementById('ninjas');
 	    	writeNinjas(ninjas, target);
-
-			let searchInput = document.getElementById('search');
-			console.log(searchInput)
 			
-			searchInput.addEventListener('click', function(event) {
+			document.getElementById('searchByName').addEventListener('click', function(event) {
+				writeNinjas(searchByName(ninjas, this.value), target );
+			});
 
-				writeNinjas(search(ninjas, this.value), target );
-
+			document.getElementById('searchByOffice').addEventListener('click', function(event) {
+				writeNinjas(searchByOffice(ninjas, this.value), target );
 			});
 		});
 
