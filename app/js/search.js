@@ -26,8 +26,13 @@ export function searchByOffice(ninjas, office) {
 		.search(searchTerm) > -1)
 }
 
-export function searchByContact(ninjas, socials) {
-	
+export function searchByContact(ninjas, contacts) {
+	return ninjas.filter(ninja =>
+		ninja['gitHub'] == contacts['gitHub'] ||
+		ninja['twitter'] == contacts['twitter'] || 
+		ninja['stackOverflow'] == contacts['stackOverflow'] ||
+		ninja['linkedIn'] == contacts['linkedIn']
+		)
 }
 
 

@@ -72,16 +72,16 @@ describe("Search / Filter Feature", () => {
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
 		]
 
-		expect(searchByContact(pool, {github: true, twitter: true, stackOverflow: true, linkedIn: true})).toEqual([
+		expect(searchByContact(pool, {gitHub: true, twitter: true, stackOverflow: true, linkedIn: true})).toEqual([
 			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
 		]);
 
-		expect(searchByContact(pool, {github: false, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([]);
+		expect(searchByContact(pool, {gitHub: false, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([]);
 
-		expect(searchByContact(pool, {github: true, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([
+		expect(searchByContact(pool, {gitHub: true, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([
 			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
