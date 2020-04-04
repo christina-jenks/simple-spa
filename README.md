@@ -16,6 +16,10 @@ The purpose of the page is to describe the Ninjas at Tretton37, so providing fil
  - Filter by name and office (1 pt)
  - Filter by contact links (1 pt)
 
+I will also attempt to do this without frameworks, so that the code is framework-agnostic.
+
+ - No framework used (such as React, Angular, Vue) (2 pt)
+
 ## Testing/QA
 I typically take a test-driven approach, so having unit tests would make the most sense. These requirements most meet the minimum: 
 
