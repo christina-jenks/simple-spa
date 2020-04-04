@@ -1,3 +1,6 @@
+# Mac Excludes
+**.DS_Store
+
 # Pulled from Github's .gitignore templates at:
 # https://github.com/github/gitignore/blob/master/Node.gitignore
 

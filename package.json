@@ -1,0 +1,31 @@
+{
+  "type": "module",
+  "name": "simple-spa",
+  "version": "1.0.0",
+  "description": "A simple SPA using native Javascript APIs and minimal frameworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christina-jenks/simple-spa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christina-jenks/simple-spa/issues"
+  },
+  "homepage": "https://github.com/christina-jenks/simple-spa#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.0",
+    "babel-jest": "^25.2.6",
+    "jest": "^25.2.7"
+  }
+}
