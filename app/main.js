@@ -3,18 +3,47 @@
 import {createProfile} from "./js/render.js"
 
 // Get the data
-let xmlhttp = new XMLHttpRequest();
+let ninjas;
+let request = new XMLHttpRequest();
 let ninjaUrl = "https://api.tretton37.com/ninjas"
-xmlhttp.onreadystatechange = function() {
-	if (this.readyState == 4 && this.status == 200) {
-	    let ninjas = JSON.parse(this.responseText);
 
+function writeNinjas(target) {
+
+    for(let ninja of ninjas) {
+		target.appendChild(createProfile(ninja));
+	}
+}
+
+function getData(event, callback) {
+	if (event.readyState == 4 && event.status == 200) {
+	    ninjas = JSON.parse(event.responseText);
 	    let target = document.getElementById('ninjas');
-	    for(let ninja of ninjas) {
-			target.appendChild(createProfile(ninja));
-		}
-    }
+	    writeNinjas(target);
+	    callback(ninjas);
+	}
 };
 
-xmlhttp.open("GET", ninjaUrl, true);
-xmlhttp.send();
+function someListener() {
+	console.log('hello');
+}
+
+function reportNinjas(ninjas) {
+	console.log(ninjas);
+}
+
+request.addEventListener('load', function() {
+	getData(this, reportNinjas);
+});
+
+request.open("GET", ninjaUrl, true);
+request.send();
+
+window.addEventListener('load', function(event){ 
+
+	
+	console.log('event: ' + event);
+	let searchInput = document.getElementById('search');
+	console.log(searchInput)
+	searchInput.addEventListener('click', someListener);
+
+});
