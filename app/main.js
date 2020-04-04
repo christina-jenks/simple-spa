@@ -34,9 +34,9 @@ window.addEventListener('load', function(event){
 			let searchInput = document.getElementById('search');
 			console.log(searchInput)
 			
-			searchInput.addEventListener('click', function() {
+			searchInput.addEventListener('click', function(event) {
 
-				writeNinjas(search(ninjas, 'foo'), target );
+				writeNinjas(search(ninjas, this.value), target );
 
 			});
 		});
