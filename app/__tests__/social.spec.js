@@ -1,6 +1,6 @@
 "use strict";
 
-import {gitHubLink, linkedInLink, twitterLink} from "../js/social.js";
+import {gitHubLink, linkedInLink, twitterLink, stackOverflowLink} from "../js/social.js";
 
 describe("Social Link Generation", () => {
 
@@ -29,7 +29,7 @@ describe("Social Link Generation", () => {
 
 		const input = "12345";
 		expect(stackOverflowLink(input)).toEqual("https://stackoverflow.com/users/12345");
-		
+
 	});
 });
 	

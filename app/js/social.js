@@ -12,4 +12,8 @@ function twitterLink(username) {
 	return "https://twitter.com/" + username;
 }
 
-export {gitHubLink, linkedInLink, twitterLink}
+function stackOverflowLink(userId) {
+	return "https://stackoverflow.com/users/" + userId;
+}
+
+export {gitHubLink, linkedInLink, twitterLink, stackOverflowLink}
