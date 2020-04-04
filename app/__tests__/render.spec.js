@@ -1,6 +1,6 @@
 "use strict";
 
-import {foo} from "../src.js";
+import "../src.js";
 
 describe("foo", () => {
 	test("it should return foo", () => {
