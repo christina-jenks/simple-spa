@@ -7,13 +7,15 @@ describe("Search / Filter Feature", () => {
 		const pool = [
 			{name: "foo"},
 			{name: "bar"},
-			{name: "BAZ"}
+			{name: "BAZ"},
+			{name: null}
 		]
 
 		expect(searchByName(pool, "")).toEqual([
 			{name: "foo"},
 			{name: "bar"},
-			{name: "BAZ"}
+			{name: "BAZ"},
+			{name: null}
 		]);
 
 	});
@@ -22,7 +24,8 @@ describe("Search / Filter Feature", () => {
 		const pool = [
 			{name: "foo"},
 			{name: "bar"},
-			{name: "BAZ"}
+			{name: "BAZ"},
+			{name: null}
 		]
 
 		expect(searchByName(pool, "ba")).toEqual([
@@ -36,21 +39,26 @@ describe("Search / Filter Feature", () => {
 		const pool = [
 			{office: "foo"},
 			{office: "bar"},
-			{office: "BAZ"}
+			{office: "BAZ"},
+			{office: null}
 		]
 
 		expect(searchByOffice(pool, "")).toEqual([
 			{office: "foo"},
 			{office: "bar"},
-			{office: "BAZ"}
+			{office: "BAZ"},
+			{office: null} // seems we have some remote workers not belonging to an office?
 		]);
+
+
 	});
 
 	test("search by office", () => {
 		const pool = [
 			{office: "foo"},
 			{office: "bar"},
-			{office: "BAZ"}
+			{office: "BAZ"},
+			{office: null}
 		]
 
 		expect(searchByOffice(pool, "ba")).toEqual([
