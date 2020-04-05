@@ -6,3 +6,17 @@
 	display: flex;
 	flex-wrap: wrap;
 }
+
+#figure #img {
+	height: 100px;
+}
+
+#article #section {
+	display: flex;
+	justify-content: center;
+}
+
+#article #section div {
+	display: flex;
+	flex-direction: row;
+}

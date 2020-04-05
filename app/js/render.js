@@ -101,10 +101,15 @@ function createProfile(profile) {
 	let root = document.createElement('section');
 
 	root.appendChild(profilePicture(profile['imagePortraitUrl'], profile['name']));
-	root.appendChild(name(profile['name']));
-	root.appendChild(office(profile['office']));
 
-	root.appendChild(socials(profile));
+	let nameOfficeDiv = document.createElement('div');
+	nameOfficeDiv.appendChild(name(profile['name']));
+	nameOfficeDiv.appendChild(office(profile['office']));
+
+	let detailsDiv = document.createElement('div');
+	detailsDiv.appendChild(nameOfficeDiv);
+	detailsDiv.appendChild(socials(profile));
+	root.appendChild(detailsDiv);
 
 	return root;
 }
