@@ -48,19 +48,19 @@ export function searchByOffice(ninjas, office) {
 // }
 
 export function searchByGitHub(ninjas, val) {
-
+	return ninjas.filter( ninja => (val && ninja['gitHub']));
 }
 
 export function searchByTwitter(ninjas, val) {
-	
+	return ninjas.filter(ninja => (val && ninja['twitter']));
 }
 
 export function searchByStackOverflow(ninjas, val) {
-	
+	return ninjas.filter(ninja => (val && ninja['stackOverflow']));
 }
 
 export function searchByLinkedIn(ninjas, val) {
-	
+	return ninjas.filter(ninja => (val && ninja['linkedIn']));
 }
 
 
