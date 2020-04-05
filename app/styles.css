@@ -1,0 +1,8 @@
+.social-icon {
+	width: 30px;
+}
+
+#ninjas {
+	display: flex;
+	flex-wrap: wrap;
+}

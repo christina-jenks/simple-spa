@@ -31,15 +31,15 @@ function office(office) {
 function socials(profile) {
 	let elem = document.createElement('div');
 
+	let linkedIn = profile['linkedIn'];
 	let gitHub = profile['gitHub'];
 	let twitter = profile['twitter'];
 	let stackOverflow = profile['stackOverflow'];
-	let linkedIn = profile['linkedIn'];
-
+	
+	if(linkedIn) { elem.appendChild(socialLinkedin(linkedIn));}
 	if(gitHub) { elem.appendChild(socialGithub(gitHub));}
 	if(twitter) { elem.appendChild(socialTwitter(twitter));}
 	if(stackOverflow) { elem.appendChild(socialStackoverflow(gitHub));}
-	if(linkedIn) { elem.appendChild(socialLinkedin(linkedIn));}
 
 	return elem;
 }
@@ -51,6 +51,7 @@ function socialGithub(gitHub) {
 	let img = document.createElement('img');
 	img.setAttribute('alt', 'Github');
 	img.setAttribute('src', 'img/gitHub.png');
+	img.setAttribute('class', 'social-icon');
 
 	a.appendChild(img);
 	return a
@@ -63,6 +64,7 @@ function socialTwitter(twitter) {
 	let img = document.createElement('img');
 	img.setAttribute('alt', 'Twitter');
 	img.setAttribute('src', 'img/twitter.png');
+	img.setAttribute('class', 'social-icon');
 
 	a.appendChild(img);
 	return a
@@ -74,6 +76,7 @@ function socialStackoverflow(stackOverflow) {
 
 	let img = document.createElement('img');
 	img.setAttribute('alt', 'Stack Overflow');
+	img.setAttribute('class', 'social-icon');
 	img.setAttribute('src', 'img/stackOverflow.png');
 
 	a.appendChild(img);
@@ -86,6 +89,7 @@ function socialLinkedin(linkedIn) {
 
 	let img = document.createElement('img');
 	img.setAttribute('alt', 'LinkedIn');
+	img.setAttribute('class', 'social-icon');
 	img.setAttribute('src', 'img/linkedIn.png');
 
 	a.appendChild(img);
