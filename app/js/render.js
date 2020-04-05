@@ -19,12 +19,14 @@ function profilePicture(profileUrl, name) {
 function name(name) {
 	let elem = document.createElement('p');
 	elem.appendChild(document.createTextNode(name));
+	elem.setAttribute('tabindex', "0");
 	return elem;
 }
 
 function office(office) {
 	let elem = document.createElement('p');
 	elem.appendChild(document.createTextNode("Office: " + office));
+	elem.setAttribute('tabindex', "0");
 	return elem;
 }
 
