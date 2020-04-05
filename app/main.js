@@ -31,13 +31,38 @@ window.addEventListener('load', function(event){
 			let target = document.getElementById('ninjas');
 	    	writeNinjas(ninjas, target);
 			
+			// Name Search
 			document.getElementById('searchByName').addEventListener('click', function(event) {
 				writeNinjas(searchByName(ninjas, this.value), target );
 			});
 
+			// Office Search
 			document.getElementById('searchByOffice').addEventListener('click', function(event) {
 				writeNinjas(searchByOffice(ninjas, this.value), target );
 			});
+
+			// Contacts/Socials Search
+			let contacts = {gitHub: true, twitter: true, stackOverflow: true, linkedIn: true}
+			document.getElementById('gitHub').addEventListener('click', function(event) {
+				contacts.gitHub = this.checked;
+				writeNinjas(searchByContact(ninjas, contacts), target);
+			});
+
+			document.getElementById('linkedIn').addEventListener('click', function(event) {
+				contacts.linkedIn = this.checked;
+				writeNinjas(searchByContact(ninjas, contacts), target);
+			});
+
+			document.getElementById('twitter').addEventListener('click', function(event) {
+				contacts.twitter = this.checked;
+				writeNinjas(searchByContact(ninjas, contacts), target);
+			});
+
+			document.getElementById('stackOverflow').addEventListener('click', function(event) {
+				contacts.stackOverflow = this.checked;
+				writeNinjas(searchByContact(ninjas, contacts), target);
+			});
+
 		});
 
 	});
