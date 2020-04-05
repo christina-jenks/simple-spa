@@ -1,7 +1,7 @@
 "use strict";
 
 import {createProfile} from "./js/render.js"
-import {searchByName, searchByOffice, searchByContact, searchByGitHub, searchByTwitter, searchByLinkedIn, searchByStackOverflow} from "./js/search.js"
+import {searchByName, searchByOffice, searchByContact} from "./js/search.js"
 
 function writeNinjas(ninjas, target) {
 
@@ -32,43 +32,6 @@ window.addEventListener('load', function(event){
 	    	writeNinjas(ninjas, target);
 
 	    	let selectedNinjas = ninjas;
-			
-			// // Name Search
-			// document.getElementById('searchByName').addEventListener('keyup', function(event) {
-			// 	//writeNinjas(searchByName(ninjas, this.value), target );
-			// 	selectedNinjas = searchByName(selectedNinjas, this.value);
-			// });
-
-			// // Office Search
-			// document.getElementById('searchByOffice').addEventListener('keyup', function(event) {
-			// 	//writeNinjas(searchByOffice(ninjas, this.value), target );
-			// 	selectedNinjas = searchByOffice(selectedNinjas, this.value);
-			// });
-
-			// // Contacts/Socials Search
-			// let contacts = {gitHub: true, twitter: true, stackOverflow: true, linkedIn: true}
-			// document.getElementById('gitHub').addEventListener('click', function(event) {
-			// 	//writeNinjas(searchByGitHub(ninjas, contacts), target);
-			// 	selectedNinjas = searchByGitHub(selectedNinjas, this.checked);
-			// });
-
-			// document.getElementById('linkedIn').addEventListener('click', function(event) {
-			// 	contacts.linkedIn = this.checked;
-			// 	//writeNinjas(searchByLinkedIn(ninjas, contacts), target);
-			// 	selectedNinjas = searchByLinkedIn(selectedNinjas, this.checked);
-			// });
-
-			// document.getElementById('twitter').addEventListener('click', function(event) {
-			// 	contacts.twitter = this.checked;
-			// 	//writeNinjas(searchByTwitter(ninjas, contacts), target);
-			// 	selectedNinjas = searchByTwitter(selectedNinjas, this.checked);
-			// });
-
-			// document.getElementById('stackOverflow').addEventListener('click', function(event) {
-			// 	contacts.stackOverflow = this.checked;
-			// 	//writeNinjas(searchByStackOverflow(ninjas, contacts), target);
-			// 	selectedNinjas = searchByStackOverflow(selectedNinjas, this.checked);
-			// });
 
 			document.getElementById('searchForm').addEventListener('submit', function(event) {
 

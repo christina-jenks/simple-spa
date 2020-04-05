@@ -50,7 +50,7 @@ function socialGithub(gitHub) {
 
 	let img = document.createElement('img');
 	img.setAttribute('alt', 'Github');
-	img.setAttribute('src', 'img/github.png');
+	img.setAttribute('src', 'img/gitHub.png');
 
 	a.appendChild(img);
 	return a
