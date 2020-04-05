@@ -11,19 +11,27 @@ export function searchByName(ninjas, name) {
 
 	let searchTerm = name.toUpperCase();
 
-	return ninjas.filter(ninja => 
-		ninja['name']
-		.toUpperCase()
-		.search(searchTerm) > -1)
+	return ninjas.filter( (ninja) => {
+
+		if(ninja.name == null) {
+			return searchTerm == '' ? true : false;
+		} else {
+			return ninja.name.toUpperCase().search(searchTerm) > -1;
+		}
+
+	});
 }
 
 export function searchByOffice(ninjas, office) {
 	let searchTerm = office.toUpperCase();
 
-	return ninjas.filter(ninja => 
-		ninja['office']
-		.toUpperCase()
-		.search(searchTerm) > -1)
+	return ninjas.filter((ninja) => {
+		if(ninja.office == null) {
+			return searchTerm == '' ? true : false;
+		} else {
+			return ninja['office'].toUpperCase().search(searchTerm) > -1;
+		}
+	});
 }
 
 export function searchByContact(ninjas, contacts) {
