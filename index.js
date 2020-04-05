@@ -5,4 +5,4 @@ const port = 3000;
 
 app.use(express.static('app'));
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Ninja app listening at http://localhost:${port}`));
