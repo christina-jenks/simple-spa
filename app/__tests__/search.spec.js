@@ -1,6 +1,6 @@
 "use strict";
 
-import {searchByName, searchByOffice, searchByGitHub, searchByTwitter, searchByStackOverflow, searchByLinkedIn} from "../js/search.js";
+import {searchByName, searchByOffice, searchByContact, searchByGitHub, searchByTwitter, searchByStackOverflow, searchByLinkedIn} from "../js/search.js";
 
 describe("Search / Filter Feature", () => {
 	test("search by name empty", () => {
@@ -67,12 +67,43 @@ describe("Search / Filter Feature", () => {
 		]);
 	});
 
-	// test("search by contact link", () => {
-	// 	// This feature is a bit vague to me, so I'll assume
-	// 	// folks want to search by those with X profile more than
-	// 	// they want to search by a specific username across contact links
-	// 	// Will operate on an object of booleans, OR'ing them together for now...
 
+	test("search by contact link", () => {
+		// This feature is a bit vague to me, so I'll assume
+		// folks want to search by those with X profile more than
+		// they want to search by a specific username across contact links
+		// Will operate on an object of booleans, OR'ing them together for now...
+
+		const pool = [
+			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
+		]
+
+		expect(searchByContact(pool, {gitHub: true, twitter: true, stackOverflow: true, linkedIn: true})).toEqual([
+			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
+		]);
+
+		expect(searchByContact(pool, {gitHub: false, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([
+			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
+		]);
+
+		expect(searchByContact(pool, {gitHub: true, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([
+			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
+			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
+		]);
+		
+	});
+
+	// test("search by gitHub", () => {
 	// 	const pool = [
 	// 		{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 	// 		{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
@@ -80,80 +111,55 @@ describe("Search / Filter Feature", () => {
 	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
 	// 	]
 
-	// 	expect(searchByContact(pool, {gitHub: true, twitter: true, stackOverflow: true, linkedIn: true})).toEqual([
+	// 	expect(searchByGitHub(pool, true)).toEqual([
+	// 		{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
+	// 	]);
+	// });
+
+	// test("search by twitter", () => {
+	// 	const pool = [
 	// 		{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 	// 		{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
 	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
-	// 	]);
+	// 	]
 
-	// 	expect(searchByContact(pool, {gitHub: false, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([]);
-
-	// 	expect(searchByContact(pool, {gitHub: true, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([
-	// 		{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 	expect(searchByTwitter(pool, true)).toEqual([
+	// 		{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
 	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
 	// 	]);
-		
 	// });
 
-	test("search by gitHub", () => {
-		const pool = [
-			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
-		]
+	// test("search by stackOverflow", () => {
+	// 	const pool = [
+	// 		{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
+	// 	]
 
-		expect(searchByGitHub(pool, true)).toEqual([
-			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
-		]);
-	});
+	// 	expect(searchByStackOverflow(pool, true)).toEqual([
+	// 		{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
+	// 	]);
+	// });
 
-	test("search by twitter", () => {
-		const pool = [
-			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
-		]
+	// test("search by linkedIn", () => {
+	// 	const pool = [
+	// 		{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
+	// 	]
 
-		expect(searchByTwitter(pool, true)).toEqual([
-			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
-		]);
-	});
-
-	test("search by stackOverflow", () => {
-		const pool = [
-			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
-		]
-
-		expect(searchByStackOverflow(pool, true)).toEqual([
-			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
-		]);
-	});
-
-	test("search by linkedIn", () => {
-		const pool = [
-			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
-		]
-
-		expect(searchByLinkedIn(pool, true)).toEqual([
-			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
-			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"}
-		]);
-	});
+	// 	expect(searchByLinkedIn(pool, true)).toEqual([
+	// 		{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
+	// 		{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"}
+	// 	]);
+	// });
 });

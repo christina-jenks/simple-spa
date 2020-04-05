@@ -34,18 +34,17 @@ export function searchByOffice(ninjas, office) {
 	});
 }
 
-// export function searchByContact(ninjas, contacts) {
-// 	return ninjas.filter( (ninja) => {
+export function searchByContact(ninjas, contacts) {
+	return ninjas.filter( (ninja) => {
 
-// 		return (
-// 			(ninja['gitHub'] && contacts['gitHub']) ||
-// 			(ninja['twitter'] && contacts['twitter']) || 
-// 			(ninja['stackOverflow'] && contacts['stackOverflow']) ||
-// 			(ninja['linkedIn'] && contacts['linkedIn'])
-// 		);
-		
-// 	})
-// }
+		return (
+			(ninja['gitHub'] && contacts['gitHub']) ||
+			(ninja['twitter'] && contacts['twitter']) || 
+			(ninja['stackOverflow'] && contacts['stackOverflow']) ||
+			(ninja['linkedIn'] && contacts['linkedIn'])
+		);
+	});
+}
 
 export function searchByGitHub(ninjas, val) {
 	return ninjas.filter( ninja => (val && ninja['gitHub']));
