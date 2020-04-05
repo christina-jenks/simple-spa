@@ -81,6 +81,7 @@ describe("Search / Filter Feature", () => {
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
 		]
 
+		// All checked, include all results
 		expect(searchByContact(pool, {gitHub: true, twitter: true, stackOverflow: true, linkedIn: true})).toEqual([
 			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
@@ -88,6 +89,7 @@ describe("Search / Filter Feature", () => {
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
 		]);
 
+		// All unchecked, include all results
 		expect(searchByContact(pool, {gitHub: false, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([
 			{gitHub: null, twitter: "@somebody", stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
@@ -95,6 +97,7 @@ describe("Search / Filter Feature", () => {
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: "4042508", linkedIn: null}
 		]);
 
+		// Include only what is checked
 		expect(searchByContact(pool, {gitHub: true, twitter: false, stackOverflow: false, linkedIn: false})).toEqual([
 			{gitHub: "abc", twitter: null, stackOverflow: "4042508", linkedIn: "/in/somebody/"},
 			{gitHub: "abc", twitter: "@somebody", stackOverflow: null, linkedIn: "/in/somebody/"},

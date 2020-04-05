@@ -35,8 +35,14 @@ export function searchByOffice(ninjas, office) {
 }
 
 export function searchByContact(ninjas, contacts) {
-	return ninjas.filter( (ninja) => {
+	if((!contacts['gitHub'] && 
+		!contacts['twitter'] && 
+		!contacts['stackOverflow'] && 
+		!contacts['linkedIn'])) {
+		return ninjas;
+	}
 
+	return ninjas.filter( (ninja) => {
 		return (
 			(ninja['gitHub'] && contacts['gitHub']) ||
 			(ninja['twitter'] && contacts['twitter']) || 
