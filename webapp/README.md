@@ -1,3 +1,7 @@
+Note to self: `brew install watchman` if on mac: https://github.com/facebook/create-react-app/issues/8677
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
