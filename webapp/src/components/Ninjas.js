@@ -7,11 +7,14 @@ export default class Ninjas extends React.Component {
     }
     
     render() {
+        console.log(this.props.ninjas)
         return (
             <ul>
-                <li>ninja1</li>
-                <li>ninja2</li>
-                <li>ninja3</li>
+                {
+                    this.props.ninjas.map(function(ninja) {
+                        return <li>{ninja.name}</li>
+                    })
+                }
             </ul>
         )
     }
