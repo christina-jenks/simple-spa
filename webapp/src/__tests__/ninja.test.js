@@ -3,8 +3,10 @@ import '@testing-library/jest-dom/extend-expect'
 import Ninja from '../components/Ninja'
 import React from 'react'
 
-it('does not render if name is missing', () => {
-    const ninja = {name: null}
-    const {result} = render(<Ninja ninja={ninja} />);
-    expect(result).toBe(undefined);
+it('renders img with alt as ninja name', () =>{
+    const ninja = {
+        name: "Foo Bar"
+    }
+    const {getByAltText} = render(<Ninja ninja={ninja} />);
+    expect(getByAltText(ninja.name)).toBeInTheDocument();
 })
