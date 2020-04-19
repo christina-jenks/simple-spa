@@ -1,0 +1,32 @@
+.social-icon {
+	width: 30px;
+}
+
+#ninjas {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#figure #img {
+	height: 100px;
+}
+
+#article #section {
+	display: flex;
+	justify-content: center;
+}
+
+#article #section div {
+	display: flex;
+	flex-direction: row;
+}
+
+/* for accessibility / skip-nav links */
+.hidden {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
