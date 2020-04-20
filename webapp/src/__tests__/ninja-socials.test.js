@@ -18,7 +18,7 @@ it('renders link to linkedIn if present', () => {
         linkedIn: '/in/someusername'
     }
     const {getByAltText} = render(<NinjaSocials ninja={ninja} />);
-    expect(getByAltText('linkedIn').closest('a')).toHaveAttribute('href', gitHubLink(ninja.gitHub));
+    expect(getByAltText('linkedIn').closest('a')).toHaveAttribute('href', linkedInLink(ninja.linkedIn));
 });
 
 it('renders link to twitter if present', () => {
@@ -26,7 +26,7 @@ it('renders link to twitter if present', () => {
         twitter: '@someusername'
     }
     const {getByAltText} = render(<NinjaSocials ninja={ninja} />);
-    expect(getByAltText('twitter').closest('a')).toHaveAttribute('href', gitHubLink(ninja.gitHub));
+    expect(getByAltText('twitter').closest('a')).toHaveAttribute('href', twitterLink(ninja.twitter));
 });
 
 it('renders link to stackOverflow if present', () => {
@@ -34,5 +34,5 @@ it('renders link to stackOverflow if present', () => {
         stackOverflow: '12345'
     }
     const {getByAltText} = render(<NinjaSocials ninja={ninja} />);
-    expect(getByAltText('stackOverflow').closest('a')).toHaveAttribute('href', gitHubLink(ninja.gitHub));
+    expect(getByAltText('stackOverflow').closest('a')).toHaveAttribute('href', stackOverflowLink(ninja.stackOverflow));
 });
