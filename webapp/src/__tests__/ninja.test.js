@@ -37,35 +37,3 @@ it('renders a default location if no office', () => {
     render(<Ninja ninja={ninja} />);
     expect(screen.getByText(/It's a secret!/ig)).toBeInTheDocument();
 });
-
-it('renders link to github if present', () => {
-    const ninja = {
-        gitHub: 'someusername'
-    }
-    const {getByAltText} = render(<NinjaSocials ninja={ninja} />);
-    expect(getByAltText('gitHub').closest('a')).toHaveAttribute('href', gitHubLink(ninja.gitHub));
-});
-
-// it('renders link to linkedIn if present', () => {
-//     const ninja = {
-//         linkedIn: '/in/someusername'
-//     }
-//     render(<Ninja ninja={ninja} />);
-//     expect(screen.getByText(new RegExp(ninja.linkedIn, 'gi'))).toBeInTheDocument();
-// });
-
-// it('renders link to twitter if present', () => {
-//     const ninja = {
-//         twitter: '@someusername'
-//     }
-//     render(<Ninja ninja={ninja} />);
-//     expect(screen.getByText(new RegExp(ninja.twitter, 'gi'))).toBeInTheDocument();
-// });
-
-// it('renders link to stackOverflow if present', () => {
-//     const ninja = {
-//         stackOverflow: '12345'
-//     }
-//     render(<Ninja ninja={ninja} />);
-//     expect(screen.getByText(new RegExp(ninja.stackOverflow, 'gi'))).toBeInTheDocument();
-// });
