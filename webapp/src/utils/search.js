@@ -1,4 +1,3 @@
-"use strict";
 
 function search(ninjas, searchString) {
 	console.log(searchString);

@@ -1,4 +1,3 @@
-"use strict";
 
 function gitHubLink(username) {
 	return "https://github.com/" + username;

@@ -7,3 +7,11 @@ it('renders message if no ninjas', () => {
     const { result } = render(<Ninjas ninjas={[]} />);
     expect(screen.getByText('No ninjas found!')).toBeInTheDocument(); // this is changeable later
 });
+
+it('renders ninjas if ninjas', () => {
+    const ninjas = [
+        {name: "foo"}
+    ]
+    render(<Ninjas ninjas={ninjas} />);
+    expect(screen.getByText(/foo/)).toBeInTheDocument();
+})

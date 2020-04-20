@@ -1,4 +1,5 @@
 import React from 'react'
+import Ninja from './Ninja'
 
 function NoNinjasFound(props) {
     return (
@@ -9,9 +10,11 @@ function NoNinjasFound(props) {
 export default function Ninjas(props) {
 
     const ninjas = props.ninjas ? props.ninjas : []
-    return (
-        
-            <NoNinjasFound />
-        
-    )
+    if(ninjas.length > 0) {
+        return (
+            ninjas.map(function(ninja){return <Ninja key={ninja.name || ninja.email} ninja={ninja} />})
+        )
+    } else {
+        return <NoNinjasFound />
+    }
 }
