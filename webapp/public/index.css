@@ -7,34 +7,16 @@
 	flex-wrap: wrap;
 }
 
-.ninja {
+#figure #img {
+	height: 100px;
+}
+
+#article #section {
 	display: flex;
+	justify-content: center;
 }
 
-.ninja-portrait {
-	width: 150px;
-}
-
-.ninja-details {
-	display: inline-flex;
-}
-.ninja-id {
-	/* display: flex;
-	flex-direction: column;
-	justify-content: left; */
-}
-
-.ninja-socials {
-	/* display: flex;
-	justify-content: space-between; */
-}
-
-article section {
-	display: flex;
-	flex-direction: column;
-}
-
-article section div {
+#article #section div {
 	display: flex;
 	flex-direction: row;
 }

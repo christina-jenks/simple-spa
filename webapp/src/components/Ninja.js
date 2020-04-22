@@ -5,17 +5,19 @@ export default function Ninja(props) {
     const ninja = props && props.ninja;
     return (
         <section className='ninja-portrait' >
-            <img alt={ninja.name} src={ninja.imagePortraitUrl} className='portrait' />
+            <figure>
+                <img alt={ninja.name} src={ninja.imagePortraitUrl} className='portrait' />
+            </figure>
             <div className='ninja-details'>
                 <div className='ninja-id' >
-                    <h2>{ninja.name}</h2>
-                    <h3>Office: {ninja.office || "It's a secret!"}</h3>
+                    <p tabIndex='0' >{ninja.name}</p>
+                    <p tabIndex='0' >Office: {ninja.office || "It's a secret!"}</p>
                 </div>
                 {
                     (() => {
                         if(ninja.gitHub || ninja.twitter || ninja.linkedIn || ninja.stackOverflow) {
                             return (
-                                <div class='ninja-socials' >
+                                <div className='ninja-socials' >
                                     <NinjaSocials ninja={ninja} />
                                 </div>
                             )
