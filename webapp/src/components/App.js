@@ -29,8 +29,7 @@ export default class App extends React.Component {
             }
             json = await response.json();
         } catch(e) {
-            // Rethrow if something goes wrong
-            throw e;
+            log(e);
         } 
         return json;
     }

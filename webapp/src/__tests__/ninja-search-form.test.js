@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, getByText, screen, toBeInTheDocument, getByAltText, getAllByText, getByLabelText } from '@testing-library/react'
+import { render, getByText, screen, toBeInTheDocument, getByAltText, getAllByText, getByLabelText, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import NinjaSearch from '../components/NinjaSearch'
 
